@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Playfair Display (Display) ───────────────────────────── */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Plus Jakarta Sans (Body) ─────────────────────────────── */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Warm cream background */
+    --background: 0.975 0.008 60;
+    --foreground: 0.22 0.025 30;
+
+    /* Cards: slightly cooler cream */
+    --card: 0.99 0.005 60;
+    --card-foreground: 0.22 0.025 30;
+
+    /* Popovers */
+    --popover: 0.99 0.005 60;
+    --popover-foreground: 0.22 0.025 30;
+
+    /* Primary: deep rose-mauve */
+    --primary: 0.42 0.12 345;
+    --primary-foreground: 0.98 0.005 60;
+
+    /* Secondary: warm blush */
+    --secondary: 0.93 0.018 30;
+    --secondary-foreground: 0.35 0.05 345;
+
+    /* Muted */
+    --muted: 0.94 0.012 40;
+    --muted-foreground: 0.52 0.04 30;
+
+    /* Accent: dusty terracotta */
+    --accent: 0.88 0.035 25;
+    --accent-foreground: 0.30 0.06 25;
+
+    /* Destructive */
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 60;
+
+    /* Borders & inputs */
+    --border: 0.88 0.018 40;
+    --input: 0.88 0.018 40;
+    --ring: 0.42 0.12 345;
+
+    /* Charts */
+    --chart-1: 0.42 0.12 345;
+    --chart-2: 0.62 0.10 25;
+    --chart-3: 0.52 0.08 120;
+    --chart-4: 0.72 0.12 60;
+    --chart-5: 0.68 0.14 300;
+
+    /* Sidebar */
+    --sidebar: 0.97 0.01 60;
+    --sidebar-foreground: 0.22 0.025 30;
+    --sidebar-primary: 0.42 0.12 345;
+    --sidebar-primary-foreground: 0.98 0.005 60;
+    --sidebar-accent: 0.93 0.018 30;
+    --sidebar-accent-foreground: 0.35 0.05 345;
+    --sidebar-border: 0.88 0.018 40;
+    --sidebar-ring: 0.42 0.12 345;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+/* Progress bar custom colors */
+.progress-low [data-slot="progress-indicator"] {
+  background: oklch(0.65 0.18 25);
+}
+.progress-medium [data-slot="progress-indicator"] {
+  background: oklch(0.72 0.12 60);
+}
+.progress-good [data-slot="progress-indicator"] {
+  background: oklch(0.52 0.12 145);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.78 0.03 345);
+  border-radius: 99px;
+}
+
+/* Gradient mesh background for login page */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse at 20% 20%, oklch(0.85 0.06 345 / 0.5) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, oklch(0.88 0.06 25 / 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 20%, oklch(0.90 0.04 60 / 0.3) 0%, transparent 50%),
+    oklch(0.975 0.008 60);
+}
